@@ -33,13 +33,9 @@ while busqueda_url and item <= maximo:
     
     
     siguiente_link = data.find("a", class_ = "andes-pagination__link")
-    print(siguiente_link)
+    siguiente_link = siguiente_link.find_next("a", class_ = "andes-pagination__link")   
     siguiente_link = siguiente_link.find_next("a", class_ = "andes-pagination__link")
-    
-    siguiente_link = siguiente_link.find_next("a", class_ = "andes-pagination__link")
-    print(item)
-    
-    print(siguiente_link)
+
     if siguiente_link:
         busqueda_url = urlparse(siguiente_link.get("href")).path
     else:
